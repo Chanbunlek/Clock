@@ -18,7 +18,6 @@
 
 </head>
 <body>
-
     <div class="frame">
         <div id="pointer-h">
             <div id="sub-h-1"></div>
@@ -220,5 +219,21 @@
             <p id="sub-led-1"></p>
         </div>
     </div>
+    <input type="file" name="img" id="img" accept=".jpg">
+
+    <script>
+        let img = document.querySelector( "#img" );
+        let frm = document.querySelector( ".frame" );
+
+        img.addEventListener( "change", function() {
+            let fileReader = new FileReader();
+            fileReader.readAsDataURL( img.files[0] );
+
+            fileReader.onload = () => {
+                frm.style.backgroundImage = "url('" + fileReader.result + "')";
+                console.log( fileReader.result );
+            }
+        })
+    </script>
 </body>
 </html>

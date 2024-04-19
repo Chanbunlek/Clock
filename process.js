@@ -32,4 +32,4 @@ function time() {
     document.getElementById( "sub-led-1" ).innerHTML = d;
 }
 
-setInterval( time );
+setInterval( time, 10 );
